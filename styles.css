@@ -1,0 +1,122 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+*{
+    font-family: 'Century Gothic';
+}
+.title{
+    font-weight: bold;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 10vh;
+}
+
+.allInputs{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+@media screen and (max-width: 800px) {
+    .allInputs{
+        display: flex;
+        flex-direction: column;
+        gap: 5vw;
+    }
+
+    .input input,.input select{
+        width: 200px !important;
+    }
+  }
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.input label{
+    font-size: 1.5rem;
+}
+
+.input input{
+    height: 30px;
+    width: 12vw;
+    border-radius: 0.5rem;
+    border: 0px solid;
+    background-color: lightgrey;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.input select{
+    height: 47px;
+    width: 12vw;
+    border-radius: 0.5rem;
+    border: 0px solid;
+    background-color: lightgrey;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.form legend{
+    font-size: 2rem;
+}
+.submitBtn{
+    height: 50px;
+    width: 10vw;
+    border-radius: 2rem;
+    border: 0px solid;
+    font-size: 1.5rem;
+    transition-duration: 0.4s;
+}
+
+.submitBtn:hover{
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.main{
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.my-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+.my-table th, .my-table td {
+    border: 0px solid;
+    border-bottom: 2px solid lightgray;
+    padding: 15px;
+    text-align: center;
+}
+  
+.my-table th {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.table-status, .delete-btn{
+    height: 50px;
+    width: 110px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 0px solid;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.delete-btn:hover ,.table-status:hover{
+    font-weight: bolder;
+}

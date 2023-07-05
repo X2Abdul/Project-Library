@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="top-header">
+                <p class="title">My Library</p>
+                <p class="top-header-text">
+                    This is a project from 
+                    <a href="https://www.theodinproject.com/">The Odin Project</a> 
+                    where i have created this small library for the users to store/delete/manage their read/unread books.
+                    <br>
+                    <a href="https://github.com/X2Abdul/Project-Library">Github Repository</a>
+                </p>
+            </div>
+            <div class="bottom-header">
+                <form class="form" action="example.com/path" method="post">
+                    <legend>Add your Books</legend>
+                    <div class="allInputs">
+                        <div class="input">
+                            <label for="book">Book</label>
+                            <input type="text" id="book" required>
+                        </div>
+                        <div class="input">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" required>
+                        </div>
+                        <div class="input">
+                            <label for="pages">Total Pages</label>
+                            <input type="number" id="pages" required>
+                        </div>
+                        <div class="input">
+                            <label for="status">Status</label>
+                            <select name="status" id="status">
+                                <option value="read">Read</option>
+                                <option value="unread">Unread</option>
+                                <option value="reading">Reading</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="submitBtnDiv">
+                        <button type="submit" class="submitBtn">Add Book</button>
+                    </div>
+                  </form>
+            </div>
+        </header>
+        <main class="main">
+            <table class="my-table">
+                <tr>
+                  <th>Book</th>
+                  <th>Author</th>
+                  <th>Total Tages</th>
+                  <th>Status</th>
+                </tr>
+                <tr>
+                  <td>Ozymandias</td>
+                  <td>Abdul</td>
+                  <td>
+                    <select class="table-status" name="status" id="status">
+                        <option value="read">Read</option>
+                        <option value="unread">Unread</option>
+                        <option value="reading">Reading</option>
+                    </select>
+                </td>
+                  <td><button class="delete-btn" type="button">Delete</button></td>
+                </tr>
+              </table>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
