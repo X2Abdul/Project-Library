@@ -21,8 +21,8 @@ body{
 
 @media screen and (max-width: 800px) {
     .allInputs{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 5vw;
     }
 
@@ -72,7 +72,7 @@ body{
 }
 .submitBtn{
     height: 50px;
-    width: 10vw;
+    width: 200px;
     border-radius: 2rem;
     border: 0px solid;
     font-size: 1.5rem;
