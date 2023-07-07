@@ -60,7 +60,13 @@ const displayTable = function(){
           rowTemplateCopy.querySelector('#read').setAttribute('selected', 'true');
           break;
       }
+
+      const deleteBtn = rowTemplateCopy.querySelector('.delete-btn');
+      deleteBtn.addEventListener('click', function(){
+        deleteBtn.parentNode.parentNode.parentNode.removeChild(deleteBtn.parentNode.parentNode);
+      });
       table.appendChild(rowTemplateCopy);
+
     });
 }
 
@@ -78,10 +84,3 @@ submitBtn.addEventListener('click', function(){
     }
 });
 
-const deleteBtn = document.querySelector('.delete-btn');
-deleteBtn.addEventListener('click', function(){
-  console.log(deleteBtn.parentElement);
-  console.log(deleteBtn.parentElement.parentElement);
-  console.log(deleteBtn.parentElement.parentElement.parentElement);
-  deleteBtn.parentNode.parentNode.parentNode.removeChild(deleteBtn.parentNode.parentNode);
-});
