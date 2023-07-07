@@ -10,9 +10,13 @@ class Book {
 
   addBookToLibrary() {
     myLibrary.push(this);
-
+    let myLibraryJSONString = JSON.stringify(myLibrary);
+    console.log(myLibraryJSONString);
+    localStorage.setItem("myLibrary", myLibraryJSONString);
   }
 }
+
+
 
 const book = document.querySelector('#book');
 const author = document.querySelector('#author');
@@ -36,16 +40,16 @@ const deleteTable = function(){
     }
 }
 
-const displayTable = function(){
+const displayTable = function(library){
     const table = document.querySelector('.my-table tbody');
-  
-    myLibrary.forEach(book => {
+    const firstRow = table.querySelector('tr:first-child'); // Get the first row of the table
+
+    library.forEach(book => {
       var rowTemplate = document.getElementById('table-row');
       var rowTemplateCopy = document.importNode(rowTemplate.content, true);
       rowTemplateCopy.querySelector('#book-name').textContent = book.bookName;
       rowTemplateCopy.querySelector('#book-author').textContent = book.author;
       rowTemplateCopy.querySelector('#book-pages').textContent = book.pages;
-      console.log(book.status);
       switch (book.status) {
         case 'read':
           rowTemplateCopy.querySelector('#read').setAttribute('selected', 'true');
@@ -65,10 +69,13 @@ const displayTable = function(){
       deleteBtn.addEventListener('click', function(){
         deleteBtn.parentNode.parentNode.parentNode.removeChild(deleteBtn.parentNode.parentNode);
       });
-      table.appendChild(rowTemplateCopy);
+      table.insertBefore(rowTemplateCopy, firstRow.nextSibling);
 
     });
 }
+
+let newMyLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+displayTable(newMyLibrary);
 
 submitBtn.addEventListener('click', function(){
     event.preventDefault(); // Prevents the default form submission behavior
@@ -77,8 +84,7 @@ submitBtn.addEventListener('click', function(){
         books.addBookToLibrary();
         clearInputValues();
         deleteTable();
-        displayTable();
-        console.log(myLibrary);
+        displayTable(myLibrary);
     }else{
 
     }
