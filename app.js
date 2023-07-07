@@ -11,12 +11,9 @@ class Book {
   addBookToLibrary() {
     myLibrary.push(this);
     let myLibraryJSONString = JSON.stringify(myLibrary);
-    console.log(myLibraryJSONString);
-    localStorage.setItem("myLibrary", myLibraryJSONString);
+    localStorage.setItem("Library", myLibraryJSONString);
   }
 }
-
-
 
 const book = document.querySelector('#book');
 const author = document.querySelector('#author');
@@ -40,10 +37,25 @@ const deleteTable = function(){
     }
 }
 
-const displayTable = function(library){
+function removeBookByBookName(bookName) {
+    for (var i = 0; i < myLibrary.length; i++) {
+      if (myLibrary[i].bookName === bookName) {
+        myLibrary.splice(i, 1); // Remove 1 element at index i
+        let myLibraryJSONString = JSON.stringify(myLibrary);
+        localStorage.setItem("Library", myLibraryJSONString);
+        break; // Exit the loop once the book is found and removed
+      }
+    }
+
+}
+function displayTable(library){
     const table = document.querySelector('.my-table tbody');
     const firstRow = table.querySelector('tr:first-child'); // Get the first row of the table
 
+    console.log(library);
+    if(library === null){
+        return;
+    }
     library.forEach(book => {
       var rowTemplate = document.getElementById('table-row');
       var rowTemplateCopy = document.importNode(rowTemplate.content, true);
@@ -66,15 +78,20 @@ const displayTable = function(library){
       }
 
       const deleteBtn = rowTemplateCopy.querySelector('.delete-btn');
-      deleteBtn.addEventListener('click', function(){
-        deleteBtn.parentNode.parentNode.parentNode.removeChild(deleteBtn.parentNode.parentNode);
-      });
+        deleteBtn.addEventListener('click', function(){
+            let bookName = deleteBtn.parentNode.parentNode.firstElementChild.textContent;
+            removeBookByBookName(bookName);
+            deleteBtn.parentNode.parentNode.parentNode.removeChild(deleteBtn.parentNode.parentNode);
+            
+        });
+
       table.insertBefore(rowTemplateCopy, firstRow.nextSibling);
 
     });
 }
 
-let newMyLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+let newMyLibrary = JSON.parse(localStorage.getItem("Library"));
+console.log(newMyLibrary);
 displayTable(newMyLibrary);
 
 submitBtn.addEventListener('click', function(){
