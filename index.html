@@ -67,12 +67,27 @@
                     <select class="table-status" name="status" id="status">
                         <option value="read">Read</option>
                         <option value="unread">Unread</option>
-                        <option value="reading" selected>Reading</option>
+                        <option value="reading" >Reading</option>
                     </select>
                 </td>
                   <td><button class="delete-btn" type="button">Delete</button></td>
                 </tr>
               </table>
+              <template id="table-row">
+                <tr>
+                    <td id="book-name"></td>
+                    <td id="book-author"></td>
+                    <td id="book-pages"></td>
+                    <td id="book-status">
+                      <select class="table-status" name="status" id="status">
+                          <option id="read" value="Read">Read</option>
+                          <option id="unread" value="Unread">Unread</option>
+                          <option id="reading" value="Reading">Reading</option>
+                      </select>
+                    </td>
+                    <td><button class="delete-btn" type="button">Delete</button></td>
+                </tr>
+              </template>
         </main>
     </div>
     <script src="app.js"></script>
